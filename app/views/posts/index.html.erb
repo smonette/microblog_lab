@@ -1,0 +1,7 @@
+
+<h2>All Posts by <%= @user.first_name%> <%= @user.last_name%></h2>
+  <ul>
+    <% @user.posts.each do |p| %>
+      <li><a href="/users/<%= @user.id %>/posts/<%= p.id %>"><%= p.title %> <small>Read more &raquo;</small></a></li>
+    <% end %>
+  </ul>
