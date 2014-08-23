@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 
 	#polymorphic comment relationship
-	has_many :comments, as: :commentable
+	has_many :comments, as: :commentable, dependent: :destroy
 
 	#tag relationship
 	has_many :entries, dependent: :destroy
