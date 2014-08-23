@@ -106,21 +106,21 @@ cameron_post2.tags << coding
 cameron.posts << cameron_post1
 cameron.posts << cameron_post2
 
-# comment1 = Comment.create({
-#   content: "Leggings Intelligentsia actually, Blue Bottle 3 wolf moon dreamcatcher scenester keytar drinking vinegar whatever beard readymade Banksy sartorial kitsch. Ethnic pug sriracha farm-to-table actually. Cray butcher keffiyeh 3 wolf moon. Banjo blog Echo Park tousled mustache retro, normcore Brooklyn sartorial Truffaut jean shorts deep v church-key. Banjo keytar actually, Intelligentsia Kickstarter leggings artisan McSweeney's Truffaut Helvetica slow-carb sustainable Schlitz Tonx Banksy. Next level street art hashtag banjo Odd Future, letterpress asymmetrical crucifix wolf Blue Bottle locavore fashion axe pop-up Intelligentsia Banksy. Cliche Bushwick Shoreditch, leggings cray 8-bit Echo Park trust fund selvage biodiesel church-key."
-# })
+comment1 = Comment.create({
+  content: "Leggings Intelligentsia actually, Blue Bottle 3 wolf moon dreamcatcher scenester keytar drinking vinegar whatever beard readymade Banksy sartorial kitsch."
+})
 
-# comment2 = Comment.create({
-#   content: "Viral shabby chic mlkshk, seitan +1 dreamcatcher drinking vinegar bitters gastropub. Ugh bitters keytar Austin seitan Echo Park. Freegan McSweeney's keffiyeh, pour-over cardigan YOLO pork belly food truck church-key quinoa Wes Anderson semiotics Blue Bottle. Blog narwhal Godard tattooed. Fap vinyl organic, viral gluten-free leggings Helvetica freegan four loko cray authentic pour-over Etsy. Chia trust fund Austin PBR, Brooklyn you probably haven't heard of them deep v Banksy farm-to-table banjo bespoke Blue Bottle slow-carb letterpress narwhal. Synth distillery tofu polaroid Banksy gentrify Intelligentsia, flexitarian food truck pickled PBR&B sustainable."
-# })
+comment2 = Comment.create({
+  content: "Viral shabby chic mlkshk, seitan +1 dreamcatcher drinking vinegar bitters gastropub."
+})
 
-# comment3 = Comment.create({
-#   content: "Cornhole lomo art party YOLO, ennui bitters street art. Wolf narwhal master cleanse, craft beer trust fund Austin flexitarian pour-over. Viral retro forage tousled locavore deep v, Austin VHS. Chia Brooklyn cardigan actually gentrify butcher. Narwhal salvia single-origin coffee banh mi, Intelligentsia hella banjo. Church-key yr bitters viral Kickstarter normcore, single-origin coffee pork belly keffiyeh Odd Future cred. Brooklyn ugh Odd Future, twee hella 3 wolf moon Neutra cornhole street art food truck."
-# })
+comment3 = Comment.create({
+  content: "Cornhole lomo art party YOLO, ennui bitters street art."
+})
 
-# cameron_post1.comments << comment1
-# comment1.children << comment2
-# cameron_post2.comments << comment3
+cameron_post1.comments << comment1
+comment1.children << comment2
+cameron_post2.comments << comment3
 
 ####################
 
@@ -139,16 +139,16 @@ steph_post1.tags << table
 
 steph.posts << steph_post1
 
-# comment4 = Comment.create({
-#   content: "Locavore next level readymade Godard salvia. Bitters ethical small batch, cray retro fashion axe selfies leggings salvia pork belly viral normcore. Twee Shoreditch Carles, brunch lo-fi disrupt post-ironic Schlitz cred. Pork belly crucifix before they sold out tousled typewriter, leggings Truffaut master cleanse pour-over raw denim cray Kickstarter Thundercats locavore. Godard tofu fingerstache food truck before they sold out, brunch twee you probably haven't heard of them authentic pop-up iPhone kogi. Pop-up mlkshk cred fashion axe hella, church-key butcher umami. Austin ethical direct trade kale chips, Tonx ennui tofu."
-# })
+comment4 = Comment.create({
+  content: "Locavore next level readymade Godard salvia."
+})
 
-# comment5 = Comment.create({
-#   content: "Seitan chillwave gentrify Williamsburg semiotics. Jean shorts Tumblr cornhole photo booth, kitsch tofu wayfarers occupy pork belly synth banh mi fingerstache. Typewriter Echo Park chia selvage, messenger bag gluten-free hashtag kogi semiotics Thundercats crucifix Odd Future art party lo-fi. Cred artisan keytar ugh Austin. DIY kitsch 3 wolf moon, tattooed American Apparel Etsy pork belly PBR mlkshk. Banh mi pop-up twee, DIY quinoa Austin sartorial. Etsy iPhone chillwave occupy, banh mi plaid Pitchfork Helvetica Thundercats literally flexitarian readymade beard distillery."
-# })
+comment5 = Comment.create({
+  content: "Seitan chillwave gentrify Williamsburg semiotics."
+})
 
-# steph_post1.comments << comment4
-# steph_post1.comments << comment5
+steph_post1.comments << comment4
+steph_post1.comments << comment5
 
 ####################
 
@@ -165,16 +165,16 @@ alli_post1.tags << yolo
 
 alli.posts << alli_post1
 
-# comment6 = Comment.create({
-#   content: "Letterpress wolf plaid sriracha swag YOLO blog four loko, scenester slow-carb 90's salvia. Austin skateboard vegan, bicycle rights sriracha farm-to-table Helvetica before they sold out fashion axe forage typewriter trust fund gluten-free. Forage Carles cray, craft beer umami normcore vinyl seitan scenester bespoke four loko fap mumblecore 8-bit. Cornhole cray chambray food truck distillery. Stumptown Bushwick skateboard Carles you probably haven't heard of them pork belly Shoreditch polaroid. McSweeney's direct trade polaroid, Wes Anderson distillery VHS wolf keytar. Church-key art party authentic +1 pork belly chambray ethnic, chillwave irony seitan."
-# })
+comment6 = Comment.create({
+  content: "Letterpress wolf plaid sriracha swag YOLO blog four loko, scenester slow-carb 90's salvia."
+})
 
-# comment7 = Comment.create({
-#   content: "Actually leggings YOLO Truffaut Thundercats tote bag. Art party yr chia, ennui Godard fashion axe cornhole. Brooklyn selvage cornhole fap craft beer. Flannel XOXO cliche, Pitchfork blog mixtape master cleanse normcore chillwave wayfarers sustainable cardigan. Shoreditch fixie before they sold out art party ethical. Selfies brunch Pinterest, master cleanse disrupt quinoa Shoreditch yr cornhole. Actually Portland asymmetrical mixtape hashtag retro."
-# })
+comment7 = Comment.create({
+  content: "Actually leggings YOLO Truffaut Thundercats tote bag."
+})
 
-# alli_post1.comments << comment6
-# comment6.children << comment7
+alli_post1.comments << comment6
+comment6.children << comment7
 
 ####################
 
@@ -191,13 +191,13 @@ palmer_post1.tags << bicycle
 
 palmer.posts << palmer_post1
 
-# comment8 = Comment.create({
-#   content: "Post-ironic readymade Banksy Tonx. Twee before they sold out Portland, iPhone +1 Helvetica gentrify flannel Wes Anderson viral organic. Dreamcatcher sriracha kitsch gastropub flannel distillery. Four loko kale chips Shoreditch, Carles Pinterest authentic messenger bag roof party sartorial lomo sustainable pug Tonx deep v PBR&B. Hoodie iPhone selfies gastropub Intelligentsia, Helvetica church-key mixtape salvia Banksy. Fashion axe farm-to-table Carles fanny pack, selfies selvage meh deep v beard. Chia selvage bicycle rights, Pinterest keytar slow-carb YOLO Portland."
-# })
+comment8 = Comment.create({
+  content: "Post-ironic readymade Banksy Tonx."
+})
 
-# comment9 = Comment.create({
-#   content: "High Life Austin single-origin coffee, whatever tofu keytar flannel leggings Pinterest. Church-key cred fap beard Etsy. Church-key gastropub art party Blue Bottle. Chia pork belly tousled, biodiesel Thundercats scenester post-ironic Wes Anderson mumblecore Helvetica pour-over. Freegan narwhal keytar flannel semiotics. Selfies twee tote bag tofu, raw denim slow-carb tattooed swag Williamsburg whatever gentrify. Freegan skateboard try-hard art party, fixie bespoke paleo bicycle rights forage crucifix."
-# })
+comment9 = Comment.create({
+  content: "High Life Austin single-origin coffee, whatever tofu keytar flannel leggings Pinterest."
+})
 
-# palmer_post1.comments << comment8
-# palmer_post1.comments << comment9
+palmer_post1.comments << comment8
+palmer_post1.comments << comment9
