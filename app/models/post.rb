@@ -10,9 +10,9 @@ class Post < ActiveRecord::Base
 
   validates :title,
     :presence => true,
-    :length => {:maximum => 50}
+    :length => {:minimum => 5, :maximum => 50}
 
   validates :body,
     :presence => true,
-    :length => {:maximum => 250}
+    :length => {:minimum => 5, :maximum => 250}
 end
