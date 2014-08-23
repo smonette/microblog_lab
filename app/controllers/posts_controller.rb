@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   def new
-      user_id = params[:user_id]
+      user_id = params[:id]
       @user = User.find_by_id(user_id)
-      @post = @user.post.new
+      @post = @user.posts.new
   end
   def create
 
