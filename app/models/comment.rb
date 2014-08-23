@@ -4,7 +4,6 @@ class Comment < ActiveRecord::Base
 
 	#for comments within comments, left naming vague to make sure no issues with pluralization.
 	#this is both self-joining and polymorphic
-	has_many :children, class_name: "Comment", foreign_key: "commentable_id" , as: :commentable
-
+	has_many :children, class_name: "Comment", foreign_key: "commentable_id", as: :commentable, dependent: :destroy
 	belongs_to :parent, class_name: "Comment", foreign_key: "commentable_id"
 end
