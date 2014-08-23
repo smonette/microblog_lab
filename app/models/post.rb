@@ -7,4 +7,12 @@ class Post < ActiveRecord::Base
 	#tag relationship
 	has_many :entries, dependent: :destroy
 	has_many :tags, :through => :entries
+
+  validates :title,
+    :presence => true,
+    :length => {:maximum => 50}
+
+  validates :body,
+    :presence => true,
+    :length => {:maximum => 250}
 end

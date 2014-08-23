@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
     :uniqueness => true,
     :format => {:with => /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/}
 
-    validates :first_name,
-      :presence => true
+  validates :first_name,
+    :presence => true
 
-    validates :last_name,
-      :presence => true
+  validates :last_name,
+    :presence => true
 end
