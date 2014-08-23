@@ -1,0 +1,17 @@
+
+
+
+<div class="container">
+  <h1>Create your profile: </h1>
+  <%= form_for @user do |f| %>
+    <label>First name: </label>
+    <%= f.text_field :first_name %><br>
+    <label>Last name: </label>
+    <%= f.text_field :last_name %><br>
+    <label>Email address: </label>
+    <%= f.text_field :email %><br>
+    <label>Add a profile image: </label>
+    <%= f.text_field :image_url, placeholder: "Image URL" %><br>
+    <%= f.submit "Save User"%>
+  <% end %>
+</div>
