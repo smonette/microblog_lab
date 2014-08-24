@@ -62,5 +62,13 @@ body#microblog {
   }
   /* Pages */
   /* Posts */
+
+  p.subcomment {
+    padding-left: 25px;
+    span {
+      padding-right: 10px;
+    }
+  }
+
   /* Tags */
 }

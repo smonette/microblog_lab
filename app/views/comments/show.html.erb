@@ -1,52 +1,60 @@
-<div class="container">
+<div class="row">
+  <div class="col-xs-12 col-sm-8  col-sm-offset-2">
 
-  THIS COMMENT'S PARENT IS A <%=@commentable_type %>
+    <% if @commentable_type == "Post" %>
+      <h2><a href="/users/<%= @user.id %>/posts/<%= @parent.id %>"><%= @parent.title %></a></h2>
+      <h4>By:
+        <a href="/users/<%= @user.id %>">
+          <%= @user.first_name %> <%= @user.last_name %>
+        </a>
+      </h4>
+      <% month = @parent[:created_at].month %>
+      <% day = @parent[:created_at].day %>
+      <% year =  @parent[:created_at].year %>
 
-  <% if @commentable_type == "Post" %>
-    <h2><a href="/users/<%= @user.id %>/posts/<%= @parent.id %>"><%= @parent.title %></a></h2>
-    <h4>By:
-      <a href="/users/<%= @user.id %>">
-        <%= @user.first_name %> <%= @user.last_name %>
-      </a>
-    </h4>
-    <% month = @parent[:created_at].month %>
-    <% day = @parent[:created_at].day %>
-    <% year =  @parent[:created_at].year %>
+      <p><%= month %>.<%= day %>.<%= year %></p>
+      <p><%= @parent.body %></p>
 
-    <div><%= month %>.<%= day %>.<%= year %></div>
-    <p><%= @parent.body %></p>
+      <p>
+        Tags:
+        <% @parent.tags.each do |tag| %>
+          <a href="/tags/<%= tag[:id] %>">#<%= tag.name %></a>
+        <% end %>
+      </p>
 
-    <p>
-      Tags:
-      <% @parent.tags.each do |tag| %>
-        <a href="/tags/<%= tag[:id] %>">#<%= tag.name %></a>
-      <% end %>
-    </p>
+    <!-- THIS LOGIC IS NOT IN USE RIGHT NOW
+    it only applies when the comment's parent is a comment
+    but we chose not to give the user a link this deep in -->
 
-  <% elsif @commentable_type == "Comment" %>
-    <h5>PARENT COMMENT</h5>
-    <p><%= @parent.content %></p>
-  <% end %>
-
-  <h3>THE COMMENT</h3>
-  <p><%= @comment.content %></p>
-
-  <h4>New Comment on THE COMMENT</h4>
-
-  <form action="/comments/<%= @comment.id %>/children" method="post">
-    <div class="form-group">
-      <input type="text" name="child[content]", class="form-control", placeholder="Comment Text", autofocus>
-    </div>
-    <%= token_tag form_authenticity_token %>
-
-    <input type="submit" value: "Save Comment", class="btn btn-default">
-  </form>
-
-  <% @comment.children.each do |child| %>
-    <% if child.content %>
-      <h4>COMMENT ON THE COMMENT</h4>
-      <p><%= child.content %> <a href="/comments/<%= child.id %>">More >></a></p>
+    <% elsif @commentable_type == "Comment" %>
+      <!-- PARENT COMMENT -->
+      <h5><%= @parent.content %></h5>
     <% end %>
-  <% end %>
 
+    <!--  -->
+
+    <h4><%= @comment.content %></h4>
+
+    <% if @comment.children.length > 0  %>
+      <h5>What people are saying</h5>
+    <% end %>
+
+    <% @comment.children.each do |child| %>
+      <% if child.content %>
+        <p><%= child.content %></p>
+      <% end %>
+    <% end %>
+
+    <h5>Say something about this</h5>
+
+    <form action="/comments/<%= @comment.id %>/children" method="post">
+      <div class="form-group">
+        <input type="text" name="child[content]", class="form-control", placeholder="Comment Text", autofocus>
+      </div>
+      <%= token_tag form_authenticity_token %>
+
+      <input type="submit" value: "Save Comment", class="btn btn-default">
+    </form>
+
+  </div>
 </div>
