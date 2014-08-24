@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     resources :pages
   end
 
+  resources :tags
   resources :comments
-
 
   #specific user's posts associated with a specific tag
   get "/users/:user_id/tags/:tag_id", to: "users#show_posts_by_tag"
