@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(user_id)
 
     @post = @user.posts.find_by_id(params[:id])
-    p @post
+    @all_posts = @user.posts
   end
 
 #edit user
