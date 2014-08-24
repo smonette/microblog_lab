@@ -9,9 +9,11 @@
     <label>Last name: </label>
     <%= f.text_field :last_name %><br>
     <label>Email address: </label>
-    <%= f.text_field :email %><br>
+    <%= f.email_field :email %><br>
+  <label>Confirm email: </label>
+    <%= text_field :person, :email_confirmation %>
     <label>Add a profile image: </label>
-    <%= f.text_field :image_url, placeholder: "Image URL" %><br>
+    <%= f.url_field :image_url, placeholder: "Image URL" %><br>
     <%= f.submit "Save User"%>
   <% end %>
 </div>

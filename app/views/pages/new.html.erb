@@ -1,0 +1,15 @@
+
+<div class="container">
+  <h1>Build Out Your Profile</h1>
+  <p>Create a new page: </p>
+
+  <%= form_for ([@user, @page]) do |f| %>
+    <label>Select About or Contact: </label><br>
+    <%= f.text_field :name, placeholder: "About or Contact" %><br>
+
+    <label>Add Content: </label><br>
+    <%= f.text_area :content %><br>
+    <%= f.submit %>
+  <% end %>
+</div>
+
