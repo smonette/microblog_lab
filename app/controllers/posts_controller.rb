@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
+    @comment = @post.comments.new
   end
 
   def new
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
   def create
     @user = User.find_by_id(params[:user_id])
     new_post = params.require(:post).permit(:title, :body)
-    
+
     @post = @user.posts.new(new_post)
     tag_params = params[:tags].split(",").map(&:strip).map(&:downcase)
 
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
   def update
     @user = User.find_by_id(params[:user_id])
     @post = @user.posts.find_by_id(params[:id])
-    
+
     if @post
       update_post = params.require(:post).permit(:title, :body)
       @post.update_attributes(

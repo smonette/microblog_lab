@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :comments
 
   #specific user's posts associated with a specific tag
-  get "/users/:user_id/tags/:tag_id", to: "users#show_posts_by_tag"
+  # get "/users/:user_id/tags/:tag_id", to: "users#show_posts_by_tag"
 
-  post "/posts/:post_id/comments", to: "comments#create"
+  post "users/:user_id/posts/:post_id/comments", to: "comments#create"
 
 end
