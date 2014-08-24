@@ -9,12 +9,11 @@ class PagesController < ApplicationController
 	def show
 		page_id = params[:id]
 		u_id = params[:user_id]
-		@user = User.find_by_id(u_id)
 
+		@user = User.find_by_id(u_id)
 		@page = Page.find_by_id(page_id)
 
-		# @pages = @user.pages
-		# p @pages
+
 	end
 
 	def new
@@ -24,18 +23,46 @@ class PagesController < ApplicationController
 		@page = @user.pages.new
 	end
 
-	#not working
+	#working but cannot keep the user from adding more than one
+	#about and contact
 	def create
 		user_id = params[:user_id]
-		new_content = params.require(:page).permit(:content)
-		new_name = params.require(:page).permit(:name)
-		p user_id
+		new_content = params.require(:page).permit(:content, :name)
+		# page = Page.users.find_by_id(params[:id])
+		# p page
 		user = User.find(user_id)
-		my_page = Page.find_or_create_by(new_name, new_content)
+
+		my_page = Page.create(new_content)
 
 		user.pages << my_page
 
 		redirect_to "/users/#{user.id}"
+	end
+ #edit page working
+	def edit
+    user_id = params[:id]
+    @user = User.find_by_id(user_id)
+
+    page_id = params[:id]
+    @page = Page.find_by_id(page_id)
+
+
+	end
+#working on update
+	def update
+
+		user_id = params[:id]
+		user = User.find(user_id)
+
+		page_id = params[:id]
+    page = Page.find_by_id(page_id)
+    res = params.require(:page).permit(:name, :content)
+
+    Page.update_attributes(
+      :name => res[:name],
+      :context  => res[:context])
+
+    redirect_to "/users/#{user_id}/pages/#{page_id}"
 	end
 
 
