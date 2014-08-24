@@ -6,7 +6,7 @@ cameron = User.create({email: "cameron.jacoby@gmail.com",
 
 cameron_about = Page.create({
   name: "About",
-  content: "Small batch American Apparel YOLO Bushwick bicycle rights kogi. Bespoke semiotics bicycle rights, mustache umami ethical Brooklyn Williamsburg sustainable post-ironic Austin aesthetic Portland 90's farm-to-table. Meggings cray Helvetica, cornhole McSweeney's bitters mustache Echo Park selfies Godard chillwave. Echo Park gluten-free occupy, kale chips High Life fanny pack vinyl keytar. Fingerstache messenger bag asymmetrical slow-carb. Schlitz selvage narwhal, brunch Brooklyn Pitchfork deep v seitan cornhole PBR&B chambray bitters gentrify cliche food truck. Whatever pork belly tattooed skateboard letterpress, you probably haven't heard of them YOLO squid selfies vegan dreamcatcher banh mi organic flannel."
+  content: "Small batch American Apparel YOLO Bushwick bicycle rights kogi. Bespoke semiotics bicycle rights, mustache umami ethical Brooklyn Williamsburg sustainable post-ironic Austin aesthetic Portland 90's farm-to-table."
 })
 
 cameron_contact = Page.create({
@@ -27,7 +27,7 @@ steph = User.create({email: "steph@gmail.com",
 
 steph_about = Page.create({
   name: "About",
-  content: "Pour-over leggings kitsch iPhone typewriter, butcher keytar cred YOLO. Photo booth authentic Pitchfork Shoreditch, quinoa readymade beard bicycle rights sartorial Carles Neutra tofu. Scenester synth butcher, fixie locavore fanny pack meggings. High Life letterpress tofu, literally fanny pack chambray banh mi +1 plaid Blue Bottle. Kale chips street art cornhole Truffaut Cosby sweater banh mi bespoke bitters Intelligentsia. Truffaut you probably haven't heard of them +1 Echo Park paleo ethnic. Before they sold out mlkshk American Apparel polaroid, yr whatever selvage deep v."
+  content: "Pour-over leggings kitsch iPhone typewriter, butcher keytar cred YOLO. Photo booth authentic Pitchfork Shoreditch, quinoa readymade beard bicycle rights sartorial Carles Neutra tofu."
 })
 
 steph_contact = Page.create({
@@ -48,7 +48,7 @@ alli = User.create({email: "alli123@gmail.com",
 
 alli_about = Page.create({
   name: "About",
-  content: "Retro yr pour-over Etsy Kickstarter semiotics. Marfa Blue Bottle ethnic XOXO, fanny pack Schlitz pour-over twee irony occupy put a bird on it seitan flexitarian Shoreditch pop-up. Pinterest 8-bit roof party, slow-carb sartorial gentrify skateboard selvage Brooklyn. Fanny pack retro biodiesel pop-up, Tonx locavore drinking vinegar tote bag bespoke seitan single-origin coffee Kickstarter sriracha Godard. Shabby chic meggings Carles authentic. Meggings irony Schlitz hoodie, shabby chic letterpress hella bicycle rights cornhole. 8-bit hella literally Blue Bottle, readymade Echo Park sartorial cardigan."
+  content: "Retro yr pour-over Etsy Kickstarter semiotics. Marfa Blue Bottle ethnic XOXO, fanny pack Schlitz pour-over twee irony occupy put a bird on it seitan flexitarian Shoreditch pop-up."
 })
 
 alli_contact = Page.create({
@@ -69,7 +69,7 @@ palmer = User.create({email: "palmer44@gmail.com",
 
 palmer_about = Page.create({
   name: "About",
-  content: "Tonx church-key drinking vinegar DIY farm-to-table scenester banjo lomo Etsy messenger bag trust fund try-hard. Kogi retro Pitchfork photo booth selfies, scenester pour-over keffiyeh Cosby sweater master cleanse Banksy ugh. American Apparel tattooed Godard artisan readymade direct trade. Mumblecore yr organic street art, wolf cliche paleo you probably haven't heard of them Thundercats butcher letterpress retro vinyl normcore tote bag. Gluten-free Odd Future distillery mlkshk High Life. Fanny pack Shoreditch Intelligentsia, viral kogi lo-fi tattooed cred Cosby sweater seitan. Wolf yr mumblecore Blue Bottle, Truffaut McSweeney's skateboard semiotics locavore."
+  content: "Tonx church-key drinking vinegar DIY farm-to-table scenester banjo lomo Etsy messenger bag trust fund try-hard. Kogi retro Pitchfork photo booth selfies, scenester pour-over keffiyeh Cosby sweater master cleanse Banksy ugh."
 })
 
 palmer_contact = Page.create({
@@ -83,13 +83,13 @@ palmer.pages << palmer_contact
 ####################
 
 cameron_post1 = Post.create({
-  title: "Selfies keffiyeh tattooed, mumblecore vegan dreamcatcher hoodie leggings direct trade irony pop-up wayfarers farm-to-table semiotics.",
-  body: "Selfies keffiyeh tattooed, mumblecore vegan dreamcatcher hoodie leggings direct trade irony pop-up wayfarers farm-to-table semiotics. Shabby chic banh mi 8-bit organic mlkshk McSweeney's. Skateboard Godard leggings, cred you probably haven't heard of them Banksy slow-carb. Tattooed asymmetrical roof party, cred gastropub 3 wolf moon kitsch Etsy post-ironic disrupt 8-bit letterpress PBR&B Wes Anderson mixtape. Crucifix gentrify Shoreditch, deep v butcher swag Blue Bottle PBR Truffaut Pinterest. Cardigan blog hella asymmetrical, skateboard Brooklyn selvage Shoreditch salvia Williamsburg shabby chic literally raw denim Echo Park. Biodiesel swag farm-to-table blog trust fund, post-ironic Schlitz PBR crucifix Odd Future slow-carb Carles seitan next level mustache."
+  title: "Selfies keffiyeh tattooed",
+  body: "Selfies keffiyeh tattooed, mumblecore vegan dreamcatcher hoodie leggings direct trade irony pop-up wayfarers farm-to-table semiotics. Shabby chic banh mi 8-bit organic mlkshk McSweeney's."
 })
 
 cameron_post2 = Post.create({
-  title: "Meggings aesthetic next level, vinyl American Apparel flexitarian ugh VHS twee slow-carb art party tousled selfies post-ironic chambray.",
-  body: "Meggings aesthetic next level, vinyl American Apparel flexitarian ugh VHS twee slow-carb art party tousled selfies post-ironic chambray. Tonx synth sustainable yr gluten-free, four loko post-ironic mlkshk butcher. PBR you probably haven't heard of them Pitchfork, brunch before they sold out artisan art party banh mi kogi lomo skateboard Vice. Bushwick Blue Bottle mixtape butcher Etsy authentic retro Carles fap, YOLO raw denim wolf cornhole flannel. Dreamcatcher Neutra put a bird on it, paleo authentic kogi retro meggings. Forage yr bicycle rights pop-up art party. American Apparel forage asymmetrical Intelligentsia authentic pour-over, trust fund raw denim cardigan VHS High Life."
+  title: "Meggings aesthetic next level",
+  body: "Meggings aesthetic next level, vinyl American Apparel flexitarian ugh VHS twee slow-carb art party tousled selfies post-ironic chambray. Tonx synth sustainable yr gluten-free, four loko post-ironic mlkshk butcher."
 })
 
 hipster = Tag.create({name: "hipster"})
@@ -125,8 +125,8 @@ cameron_post2.comments << comment3
 ####################
 
 steph_post1 = Post.create({
-  title: "PBR chambray forage, disrupt gentrify PBR&B Williamsburg distillery Helvetica trust fund.",
-  body: "PBR chambray forage, disrupt gentrify PBR&B Williamsburg distillery Helvetica trust fund. Pork belly Thundercats church-key tofu, bitters butcher wayfarers meggings sustainable viral selvage sriracha Odd Future McSweeney's. Aesthetic bespoke Helvetica, try-hard retro DIY hella cray chia jean shorts Schlitz Shoreditch. Lomo crucifix Bushwick mumblecore. Polaroid stumptown Neutra, organic vegan kale chips blog drinking vinegar sartorial lo-fi. VHS squid mustache, Portland selvage raw denim Neutra food truck. Retro brunch aesthetic cornhole."
+  title: "PBR chambray forage",
+  body: "PBR chambray forage, disrupt gentrify PBR&B Williamsburg distillery Helvetica trust fund. Pork belly Thundercats church-key tofu, bitters butcher wayfarers meggings sustainable viral selvage sriracha Odd Future McSweeney's."
 })
 
 rails = Tag.create({name: "rails"})
@@ -153,8 +153,8 @@ steph_post1.comments << comment5
 ####################
 
 alli_post1 = Post.create({
-  title: "Helvetica tote bag actually Austin. Hella ugh bicycle rights, letterpress scenester semiotics occupy Tumblr artisan beard.",
-  body: "Helvetica tote bag actually Austin. Hella ugh bicycle rights, letterpress scenester semiotics occupy Tumblr artisan beard. Vinyl scenester bitters tattooed cornhole. 90's tote bag whatever typewriter Intelligentsia ugh. Vice ethnic actually, Intelligentsia fashion axe Odd Future gastropub tattooed direct trade. Dreamcatcher PBR&B VHS street art hella Bushwick. Narwhal stumptown lo-fi street art, Portland umami literally American Apparel tofu Odd Future."
+  title: "Helvetica tote bag",
+  body: "Helvetica tote bag actually Austin. Hella ugh bicycle rights, letterpress scenester semiotics occupy Tumblr artisan beard. Vinyl scenester bitters tattooed cornhole."
 })
 
 yolo = Tag.create({name: "yolo"})
@@ -179,8 +179,8 @@ comment6.children << comment7
 ####################
 
 palmer_post1 = Post.create({
-  title: "Paleo McSweeney's Odd Future, semiotics shabby chic pour-over pop-up tote bag Tumblr ethnic single-origin coffee keffiyeh 90's.",
-  body: "Paleo McSweeney's Odd Future, semiotics shabby chic pour-over pop-up tote bag Tumblr ethnic single-origin coffee keffiyeh 90's. Slow-carb 90's Blue Bottle asymmetrical fingerstache banjo. Marfa skateboard roof party, sustainable butcher Carles Banksy Truffaut slow-carb ugh keffiyeh. Swag locavore kitsch Thundercats, crucifix leggings Austin. Banjo tousled pork belly Pitchfork next level. PBR vinyl authentic, Tonx next level blog typewriter bespoke. Tote bag put a bird on it yr ethnic pour-over."
+  title: "Paleo McSweeney's Odd Future",
+  body: "Paleo McSweeney's Odd Future, semiotics shabby chic pour-over pop-up tote bag Tumblr ethnic single-origin coffee keffiyeh 90's. Slow-carb 90's Blue Bottle asymmetrical fingerstache banjo."
 })
 
 bicycle = Tag.create({name: "bicycle"})

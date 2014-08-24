@@ -2,8 +2,8 @@ class Page < ActiveRecord::Base
 	belongs_to :user
 
   validates :name,
-    :presence => true,
-    :format => {:with => /About|about|Contact|contact/}
+    :presence => true
+    # :format => {:with => /About|about|Contact|contact/}
 
   validates :content,
     :presence => true,
@@ -11,7 +11,7 @@ class Page < ActiveRecord::Base
 
   ALLOWED_NAMES = ["About", "about", "Contact", "contact"]
 
-  validate :name_is_allowed
+  # validate :name_is_allowed
 
   def name_is_allowed
     ALLOWED_NAMES.each do |name|
