@@ -36,9 +36,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @user = User.find_by_id(params[:user_id])
     @post = @user.posts.find(params[:id])
     @post.destroy
-    render :show
+    redirect_to "/"
   end
 
 end
