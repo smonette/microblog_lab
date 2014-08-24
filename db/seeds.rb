@@ -60,6 +60,26 @@ alli.pages << alli_about
 alli.pages << alli_contact
 
 ####################
+connie = User.create({email: "connie123@gmail.com",
+  first_name: "Connie",
+  last_name: "Chang",
+  image_url: "http://fc01.deviantart.net/fs11/i/2006/260/c/5/chinchilla_by_effic.jpg"
+})
+
+connie_about = Page.create({
+  name: "About",
+  content: "Retro yr pour-over Etsy Kickstarter semiotics. Marfa Blue Bottle ethnic XOXO, fanny pack Schlitz pour-over twee irony occupy put a bird on it seitan flexitarian Shoreditch pop-up."
+})
+
+connie_contact = Page.create({
+  name: "Contact",
+  content: "Retro yr pour-over Etsy Kickstarter semiotics."
+})
+
+connie.pages << connie_about
+connie.pages << connie_contact
+
+####################
 
 palmer = User.create({email: "palmer44@gmail.com",
   first_name: "Palmer",
@@ -201,3 +221,30 @@ comment9 = Comment.create({
 
 palmer_post1.comments << comment8
 palmer_post1.comments << comment9
+
+
+####################
+
+connie_post1 = Post.create({
+  title: "High Life Austin single-origin coffee",
+  body: "Helvetica tote bag actually Austin. Hella ugh bicycle rights, letterpress scenester semiotics occupy Tumblr artisan beard. Vinyl scenester bitters tattooed cornhole."
+})
+
+yolo = Tag.create({name: "yolo"})
+
+connie_post1.tags << rails
+connie_post1.tags << table
+connie_post1.tags << bicycle
+
+connie.posts << connie_post1
+
+comment6 = Comment.create({
+  content: "Sriracha swag YOLO blog four loko, scenester slow-carb 90's salvia. Letterpress fair-trade Secret."
+})
+
+comment7 = Comment.create({
+  content: "Whatever actually leggings YOLO Truffaut Thundercats tote bag."
+})
+
+connie_post1.comments << comment10
+comment6.children << comment11
