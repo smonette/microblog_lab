@@ -1,11 +1,13 @@
 <ul>
   <li><a href="/">Home</a></li>
-  <li><a href="/about_us">About</a></li>
+  <li><a href="/about_us">About This Site</a></li>
 </ul>
 
 <div class="container">
 	<h1>Tags</h1>
 	<% @tags.each do |tag| %>
-		<p><a href="/tags/<%= tag.id %>">#<%= tag.name %></a></p>
+    <% if tag.posts.length > 0 %>
+		  <p><a href="/tags/<%= tag.id %>">#<%= tag.name %></a></p>
+    <% end %>
 	<% end %>
 </div>

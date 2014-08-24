@@ -1,12 +1,17 @@
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about_us">About This Site</a></li>
+</ul>
 
-
-<div>
-  <h1>All Users</h1>
-  <% @users.each do |user| %>
-    <img src="<%= user.image_url %>">
-     <p><%= user.first_name %> <%= user.last_name %> </p>
-     <a href="/users/<%= user.id%>">View full profile</a>
-  <% end %>
+<div class="container">
+  
+  <div>
+    <h1>All Users</h1>
+    <% @users.each do |user| %>
+      <div><img src="<%= user.image_url %>" width="150"></div>
+       <p><%= user.first_name %> <%= user.last_name %> </p>
+       <a href="/users/<%= user.id%>">View full profile</a>
+    <% end %>
+  </div>
 
 </div>
-
