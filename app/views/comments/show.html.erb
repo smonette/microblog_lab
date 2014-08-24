@@ -1,0 +1,16 @@
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about_us">About</a></li>
+</ul>
+
+<div class="container">
+
+  <h3>THE COMMENT</h3>
+  <p><%= @comment.content %></p>
+
+  <% @comment.children.each do |child| %>
+    <h4>COMMENT ON THE COMMENT</h4>
+    <p><%= child.content %> <a href="/comments/<%= child.id %>">More >></a></p>
+  <% end %>
+
+</div>

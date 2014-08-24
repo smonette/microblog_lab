@@ -29,8 +29,16 @@
 
   <% if @post.comments.length > 0 %>
     <h3>Comments about <%= @post.title %></h3>
+
     <% @post.comments.each do |comment| %>
-      <p><%= comment.content %> More >></p>
+      <h5>THE COMMENT</h5>
+      <p><%= comment.content %> <a href="/comments/<%= comment.id %>">More >></a></p>
+
+      <% comment.children.each do |child| %>
+        <h6>COMMENT ON THE COMMENT</h6>
+        <p><%= child.content %> <a href="/comments/<%= child.id %>">More >></a></p>
+      <% end %>
+
     <% end %>
   <% end %>
 
