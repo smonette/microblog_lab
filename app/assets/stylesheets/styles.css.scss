@@ -26,7 +26,10 @@ body#microblog {
     padding: 20px 0;
     border-top: $border;
   }
-
+  span.read-more {
+    display: inline-block;
+    margin-left: 20px;
+  }
 }
 
 #main-content {
@@ -41,6 +44,21 @@ body#microblog {
   .user-row {
     border-bottom: $border;
     padding-bottom: 20px;
+  }
+  .user-buttons{
+    margin-top: 10px;
+  }
+
+  ul.user-post {
+    margin: 0;
+    padding: 0;
+    li{
+      list-style: none;
+      padding: 20px 0;
+      border-bottom: $border;
+      margin: 0;
+      font-size: 14px;
+    }
   }
   /* Pages */
   /* Posts */
