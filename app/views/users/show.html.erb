@@ -1,4 +1,7 @@
-
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about_us">About</a></li>
+</ul>
 
 <div class="container">
   <img src="<%= @user.image_url %>">
@@ -6,9 +9,9 @@
   <p><%= @user.email %></p>
 
   <% @user.pages.each do |page| %>
-  	<a href="/users/<%= @user.id %>/pages/<%= page.id %>"><%= page.name %></a>
-  	<% end %>
+  	<p><a href="/users/<%= @user.id %>/pages/<%= page.id %>"><%= page.name %></a></p>
+  <% end %>
 
-  	<a href="/users/<%= @user.id %>/edit ">edit</a>
+  <p><a href="/users/<%= @user.id %>/edit ">Edit</a></p>
+  <p><a href="/users/<%= @user.id %>/posts/new">Add New Post</a></p>
 </div>
-

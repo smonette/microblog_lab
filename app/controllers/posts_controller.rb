@@ -15,10 +15,15 @@ class PostsController < ApplicationController
   end
 
   def create
+
     @user = User.find_by_id(params[:user_id])
     new_post = params.require(:post).permit(:title, :body)
-    @post = @user.posts.create(new_post)
-    render :show
+    @post = @user.posts.new(new_post)
+    if @post.save
+      redirect_to [@user, @post]
+    else
+      render action: 'new'
+    end
   end
 
   def edit
