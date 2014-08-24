@@ -8,6 +8,9 @@
       <% @user.pages.each do |page| %>
         <a href="/users/<%= @user.id %>/pages/<%= page.id %>" class="btn btn-default"><%= page.name %></a>
       <% end %>
+      <% if @user.pages.length < 2 %>
+        <a href="/users/<%= @user.id %>/pages/new" class="btn btn-default">Add Page</a>
+      <% end %>
 
       <a href="/users/<%= @user.id %>/edit " class="btn btn-default">Edit</a>
   </div>
@@ -15,8 +18,6 @@
 
   <div class="col-md-8 col-xs-12">
     <h3>Recent Posts by <%= @user.first_name %> <%= @user.last_name %></h3>
-<!--     <p><a href="/users/<%= @user.id %>/posts ">View all of <%= @user.first_name %>'s posts</a></p>
- -->
      <ul class="user-post">
         <% @all_posts.each do |post| %>
           <li>
