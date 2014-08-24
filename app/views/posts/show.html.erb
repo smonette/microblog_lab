@@ -7,4 +7,5 @@
 <p><%= @post.body %></p>
 
 <a class="btn btn-default" href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" role="button">Edit Post</a>
+<%= button_to "Delete this!", user_post_path(@post.user.id, @user.id), method: :delete, class: "btn btn-danger" %>
 
