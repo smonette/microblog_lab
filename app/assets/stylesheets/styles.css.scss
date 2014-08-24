@@ -1,0 +1,44 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700);
+
+$hover: rgba(131,152,142, 1);
+$light: rgba(230,249,188, 0.5);
+$dark: rgba(58,17,28,1);
+$border: 1px solid #ccc;
+
+body#microblog {
+  font-family: 'Open Sans', sans-serif;
+  color: $dark;
+  background: url(halftone.png) 0 0 repeat;
+
+  /* General Styling */
+  a {
+    text-decoration: none;
+    color: $dark;
+    &:hover{ color: $hover;}
+  }
+  .header {
+    padding: 50px 0;
+    border-bottom: $border;
+    h1 { text-align: center; }
+  }
+  .footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: $border;
+  }
+
+}
+
+#main-content {
+
+  /* Users */
+  img.profile-pic {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    max-width: 100%;
+    text-align: center;
+  }
+  /* Pages */
+  /* Posts */
+  /* Tags */
+}
