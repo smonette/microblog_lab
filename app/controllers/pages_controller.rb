@@ -27,11 +27,11 @@ class PagesController < ApplicationController
 	#not working
 	def create
 		user_id = params[:user_id]
-		new_page = params.require(:page).permit(:name, :content)
+		new_content = params.require(:page).permit(:content)
 		new_name = params.require(:page).permit(:name)
 		p user_id
 		user = User.find(user_id)
-		my_page = Page.find_or_create_by(new_name)
+		my_page = Page.find_or_create_by(new_name, new_content)
 
 		user.pages << my_page
 
