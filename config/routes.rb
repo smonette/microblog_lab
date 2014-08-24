@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   post "users/:user_id/posts/:post_id/comments", to: "comments#create"
 
+  post "/comments/:id/children", to: "comments#create_child"
+
 end
