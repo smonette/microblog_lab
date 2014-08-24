@@ -4,8 +4,21 @@
   <p><%= @comment.content %></p>
 
   <% @comment.children.each do |child| %>
-    <h4>COMMENT ON THE COMMENT</h4>
-    <p><%= child.content %> <a href="/comments/<%= child.id %>">More >></a></p>
+    <% if child.content %>
+      <h4>COMMENT ON THE COMMENT</h4>
+      <p><%= child.content %> <a href="/comments/<%= child.id %>">More >></a></p>
+    <% end %>
   <% end %>
+
+  <h3>New Comment on THE COMMENT</h3>
+
+  <form action="/comments/<%= @comment.id %>/children" method="post">
+    <div class="form-group">
+      <input type="text" name="child[content]", class="form-control", placeholder="Comment Text", autofocus>
+    </div>
+    <%= token_tag form_authenticity_token %>
+
+    <input type="submit" value: "Save Comment", class="btn btn-default">
+  </form>
 
 </div>
