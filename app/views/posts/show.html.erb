@@ -1,10 +1,37 @@
-<h2><%= @post.title %></h2>
-<h4>By
-  <a href="/users/<%= @user.id %>">
-    <%= @user.first_name %> <%= @user.last_name %>
-  </a>
-</h4>
-<p><%= @post.body %></p>
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="/about_us">About</a></li>
+</ul>
 
-<a class="btn btn-default" href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" role="button">Edit Post</a>
+<div class="container">
+  
+  <h2><%= @post.title %></h2>
+  <h4>By:
+    <a href="/users/<%= @user.id %>">
+      <%= @user.first_name %> <%= @user.last_name %>
+    </a>
+  </h4>
+  <% month = @post[:created_at].month %>
+  <% day = @post[:created_at].day %>
+  <% year =  @post[:created_at].year %>
 
+  <div><%= month %>.<%= day %>.<%= year %></div>
+  <p><%= @post.body %></p>
+
+  <p id="post-tags">
+    Tags:
+    <% @post.tags.each do |tag| %>
+      <a href="/tags/<%= tag[:id] %>">#<%= tag.name %></a>
+    <% end %>
+  </p>
+
+  <a class="btn btn-default" href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" role="button">Edit Post</a>
+
+  <% if @post.comments.length > 0 %>
+    <h3>Comments about <%= @post.title %></h3>
+    <% @post.comments.each do |comment| %>
+      <p><%= comment.content %> More >></p>
+    <% end %>
+  <% end %>
+
+</div>
