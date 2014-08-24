@@ -8,7 +8,7 @@
 <% day = @post[:created_at].day %>
 <% year =  @post[:created_at].year %>
 
-<div><%= month %>.<%= day %>.<%= year %></div>
+<p><%= month %>.<%= day %>.<%= year %></p>
 <p><%= @post.body %></p>
 
 <p id="post-tags">
@@ -41,14 +41,12 @@
 
   <% @post.comments.each do |comment| %>
     <% if comment.content %>
-      <h5>THE COMMENT</h5>
-      <p><%= comment.content %> <a href="/comments/<%= comment.id %>">More >></a></p>
+      <p><%= comment.content %> <a href="/comments/<%= comment.id %>"><small>Say something about this &raquo;</small></a></p>
     <% end %>
 
     <% comment.children.each do |child| %>
       <% if comment.content %>
-        <h6>COMMENT ON THE COMMENT</h6>
-        <p><%= child.content %> <a href="/comments/<%= child.id %>">More >></a></p>
+        <p class="subcomment"><span class="glyphicon glyphicon-comment"></span><small><%= child.content %></small></p>
       <% end %>
     <% end %>
 
