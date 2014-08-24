@@ -238,11 +238,11 @@ connie_post1.tags << bicycle
 
 connie.posts << connie_post1
 
-comment6 = Comment.create({
+comment10 = Comment.create({
   content: "Sriracha swag YOLO blog four loko, scenester slow-carb 90's salvia. Letterpress fair-trade Secret."
 })
 
-comment7 = Comment.create({
+comment11 = Comment.create({
   content: "Whatever actually leggings YOLO Truffaut Thundercats tote bag."
 })
 
