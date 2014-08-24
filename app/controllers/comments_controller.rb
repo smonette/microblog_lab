@@ -2,6 +2,16 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find(params[:id])
+    @commentable_type = @comment.commentable_type
+
+    if @commentable_type == "Post"
+      @parent = Post.find(@comment.commentable_id)
+      @user = User.find(@parent.user_id)
+
+    elsif @commentable_type == "Comment"
+      @parent = Comment.find_by_id(@comment.commentable_id)
+    end
+
     @child = @comment.children.new
   end
 
