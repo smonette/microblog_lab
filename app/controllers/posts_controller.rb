@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
-
+  def index
+    @user = User.find_by_id(params[:user_id])
+  end
   def show
-    @post = Post.find_by_id(params[:id])
-    render :show
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
   end
 
   def new
@@ -30,6 +32,12 @@ class PostsController < ApplicationController
     @post.update_attributes(
       :title => update_post[:title],
       :body => update_post[:body])
+    render :show
+  end
+
+  def destroy
+    @post = @user.posts.find(params[:id])
+    @post.destroy
     render :show
   end
 

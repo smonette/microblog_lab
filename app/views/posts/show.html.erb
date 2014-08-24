@@ -1,4 +1,10 @@
 <h2><%= @post.title %></h2>
-<h4>By <%= @post.user.first_name %> <%= @post.user.last_name %></h4>
+<h4>By
+  <a href="/users/<%= @user.id %>">
+    <%= @user.first_name %> <%= @user.last_name %>
+  </a>
+</h4>
 <p><%= @post.body %></p>
+
+<a class="btn btn-default" href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" role="button">Edit Post</a>
 
