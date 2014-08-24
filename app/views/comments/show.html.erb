@@ -1,6 +1,5 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-8  col-sm-offset-2">
 
+  <div class="post-content lighten">
     <% if @commentable_type == "Post" %>
       <h2><a href="/users/<%= @user.id %>/posts/<%= @parent.id %>"><%= @parent.title %></a></h2>
       <h4>By:
@@ -21,7 +20,7 @@
           <a href="/tags/<%= tag[:id] %>">#<%= tag.name %></a>
         <% end %>
       </p>
-
+  </div>
     <!-- THIS LOGIC IS NOT IN USE RIGHT NOW
     it only applies when the comment's parent is a comment
     but we chose not to give the user a link this deep in -->
@@ -33,19 +32,19 @@
 
     <!--  -->
 
-    <h4><%= @comment.content %></h4>
+    <h3><%= @comment.content %></h3>
 
-    <% if @comment.children.length > 0  %>
-      <h5>What people are saying</h5>
+    <% if @comment.children.length > 1  %>
+      <h5><i>What people are saying:</i></h5>
     <% end %>
 
     <% @comment.children.each do |child| %>
       <% if child.content %>
-        <p><%= child.content %></p>
+        <p class="subcomment"><span class="glyphicon glyphicon-comment"></span><small><%= child.content %></small></p>
       <% end %>
     <% end %>
 
-    <h5>Say something about this</h5>
+    <h5 class="say-something">Say something about this</h5>
 
     <form action="/comments/<%= @comment.id %>/children" method="post">
       <div class="form-group">
@@ -55,6 +54,3 @@
 
       <input type="submit" value: "Save Comment", class="btn btn-default">
     </form>
-
-  </div>
-</div>

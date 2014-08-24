@@ -64,9 +64,22 @@ body#microblog {
   /* Posts */
 
   p.subcomment {
-    padding-left: 25px;
+    padding: 5px 0 0 25px;
     span {
       padding-right: 10px;
+    }
+  }
+  h5.say-something{
+    padding-top: 15px;
+    font-weight: 700;
+    border-top: $border;
+  }
+  .post-content {
+    border-bottom: $border;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    &.lighten {
+      opacity: 0.6;
     }
   }
 
