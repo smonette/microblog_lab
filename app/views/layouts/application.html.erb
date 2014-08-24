@@ -6,11 +6,34 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="microblog">
   <div class="container-fluid">
+    <div class="row header">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h1><a href="/">Name of Microblog</a></h1>
+      </div>
+    </div>
+    <div class="row" id="main-content">
+     <div class="col-sm-8 col-sm-offset-2">
 
-<%= yield %>
+        <%= yield %>
 
+      </div>
+    </div>
+    <div class="row footer">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h4>Sample Routes</h4>
+        <a href="/" class="btn btn-default btn-sm">Home</a>
+        <a href="/users/1" class="btn btn-default btn-sm">User</a>
+        <a href="/users/1/edit" class="btn btn-default btn-sm">User Edit</a>
+        <a href="/users/new" class="btn btn-default btn-sm">User New</a>
+        <a href="/users/1/pages/2" class="btn btn-default btn-sm">Page</a>
+        <a href="/users/1/pages/new" class="btn btn-default btn-sm">Page New</a>
+        <a href="/users/1/posts/1" class="btn btn-default btn-sm">Post</a>
+        <a href="/users/1/posts/1/edit" class="btn btn-default btn-sm">Post Edit</a>
+        <a href="/users/1/posts/new" class="btn btn-default btn-sm">Post New</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>

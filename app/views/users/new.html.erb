@@ -1,19 +1,31 @@
 
-
-
-<div class="container">
-  <h1>Create your profile: </h1>
-  <%= form_for @user do |f| %>
-    <label>First name: </label>
-    <%= f.text_field :first_name %><br>
-    <label>Last name: </label>
-    <%= f.text_field :last_name %><br>
-    <label>Email address: </label>
-    <%= f.email_field :email %><br>
-  <label>Confirm email: </label>
-    <%= text_field :person, :email_confirmation %>
-    <label>Add a profile image: </label>
-    <%= f.url_field :image_url, placeholder: "Image URL" %><br>
-    <%= f.submit "Save User"%>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8  col-sm-offset-2">
+      <h2>Create your profile: </h2>
+      <%= form_for @user do |f| %>
+      <div class="form-group">
+        <label>First name: </label>
+        <%= f.text_field :first_name, class: "form-control"%>
+        </div>
+      <div class="form-group">
+        <label>Last name: </label>
+        <%= f.text_field :last_name , class: "form-control"%>
+        </div>
+      <div class="form-group">
+        <label>Email address: </label>
+        <%= f.email_field :email , class: "form-control"%>
+        </div>
+       <div class="form-group">
+        <label>Confirm email: </label>
+         <%= text_field :person, :email_confirmation , class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <label>Add a profile image: </label>
+          <%= f.url_field :image_url, placeholder: "Image URL" , class: "form-control"%>
+        </div>
+        <div class="form-group">
+         <%= f.submit "Save User", class: "form-control btn btn-primary" %>
+       </div>
+     </div>
+   </div>
   <% end %>
-</div>
