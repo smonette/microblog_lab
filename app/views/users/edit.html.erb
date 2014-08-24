@@ -1,0 +1,17 @@
+
+<div class="container">
+  <h1>Create your profile: </h1>
+  <%= form_for @user do |f| %>
+    <%= f.label :first_name %>:
+    <%= f.text_field :first_name %><br>
+    <%= f.label :last_name %>:
+    <%= f.text_field :last_name %><br>
+    <%= f.label :email %>:
+    <%= f.email_field :email %><br>
+  	<%= f.label :confim_email %>:
+    <%= text_field :person, :email_confirmation %>
+    <%= f.label :image_url %>:
+    <%= f.url_field :image_url, placeholder: "Image URL" %><br>
+    <%= f.submit "Update User"%>
+  <% end %>
+</div>
