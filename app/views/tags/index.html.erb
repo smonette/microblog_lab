@@ -1,6 +1,8 @@
 <div class="container">
 	<h1>Tags</h1>
 	<% @tags.each do |tag| %>
-		<p>#<%= tag.name %></p>
+		<% if tag.posts.length > 0 %>
+      <p><a href="/tags/<%= tag.id %>">#<%= tag.name %></a></p>
+    <% end %>
 	<% end %>
 </div>

@@ -1,8 +1,6 @@
   <h1>All Users</h1>
   <% @users.each do |user| %>
-    <img src="<%= user.image_url %>">
+     <img src="<%= user.image_url %>">
      <p><%= user.first_name %> <%= user.last_name %> </p>
      <a href="/users/<%= user.id%>">View full profile</a>
   <% end %>
-
-

@@ -10,6 +10,8 @@
     <% @user.pages.each do |page| %>
       <a href="/users/<%= @user.id %>/pages/<%= page.id %>" class="btn btn-default"><%= page.name %></a>
     <% end %>
-    <a href="/users/<%= @user.id %>/edit " class="btn btn-default">Edit</a>
+
+    <p><a href="/users/<%= @user.id %>/edit " class="btn btn-default">Edit</a></p>
+    <p><a href="/users/<%= @user.id %>/posts ">View all of <%= @user.first_name %>'s posts</a></p>
   </div>
 </div>
