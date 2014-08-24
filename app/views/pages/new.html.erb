@@ -4,11 +4,11 @@
 
       <%= form_for ([@user, @page]) do |f| %>
         <div class= "form-group">
-          <label>Select About or Contact: </label>
+          <%= f.label :name %>:<br>
           <%= f.text_field :name, placeholder: "About or Contact" , class: "form-control" %>
         </div>
         <div class= "form-group">
-          <label>Add Content: </label>
+          <%= f.label :content %>:<br>
           <%= f.text_area :content , class: "form-control" %>
         </div>
           <div class= "form-group">
