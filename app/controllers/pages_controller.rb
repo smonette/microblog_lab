@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   def index
     res = params[:value]
     p res
-
   end
 
   def show
@@ -49,6 +48,26 @@ class PagesController < ApplicationController
       redirect_to "/users/#{user_id}"
     end
   end
+
+  def edit
+    @user = User.find_by_id(params[:user_id])
+    @page = @user.pages.find_by_id(params[:id])
+  end
+
+  def update
+    @user = User.find_by_id(params[:user_id])
+    @page = @user.pages.find_by_id(params[:id])
+
+    if @page
+      update_page = params.require(:page).permit(:content)
+      @page.update_attributes(:content => update_page[:content])
+    end
+
+    render :show
+
+  end
+
+
 
 
 end
