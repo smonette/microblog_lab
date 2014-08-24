@@ -2,8 +2,8 @@ class Page < ActiveRecord::Base
 	belongs_to :user
 
   validates :name,
-    :presence => true
-    # :format => {:with => /About|about|Contact|contact/}
+    :presence => true,
+    :format => {:with => /About|Contact/i}
 
   validates :content,
     :presence => true,
