@@ -38,6 +38,10 @@ body#microblog {
     max-width: 100%;
     text-align: center;
   }
+  .user-row {
+    border-bottom: $border;
+    padding-bottom: 20px;
+  }
   /* Pages */
   /* Posts */
   /* Tags */
