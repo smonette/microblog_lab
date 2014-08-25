@@ -2,11 +2,11 @@
 
 ## Group Gists
 
-[Cameron](https://gist.github.com/cameronjacoby/9955ec0a95fdfa831b72)
-[Steph](https://gist.github.com/smonette/c9dce547255c9e769117)
-[Alli](https://gist.github.com/msalli/a9846f7d0c44dd3be1e5)
-[Palmer]()
-[Connie]()
+* [Cameron](https://gist.github.com/cameronjacoby/9955ec0a95fdfa831b72)
+* [Steph](https://gist.github.com/smonette/c9dce547255c9e769117)
+* [Alli](https://gist.github.com/msalli/a9846f7d0c44dd3be1e5)
+* [Palmer](https://gist.github.com/DoriPS13/a0b0bd1405f9592c4a97)
+* [Connie](https://gist.github.com/kahny/58a06eb1d2f26df2e1c9)
 
 ## A Group Prep
 
