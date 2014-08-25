@@ -15,10 +15,10 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+
+$(document).on('page:load', function() {
   $('.comment-form-toggle').each(function(index, value) {
     $(value).click(function() {
-
       console.log('link clicked!!!');
       $('.comment-on-comment').each(function(i, v) {
         if (i === index) {
@@ -26,7 +26,6 @@ $(document).ready(function() {
           $(v).fadeIn('fast');
         }
       });
-
     });
   });
 });
