@@ -25,9 +25,11 @@ class CommentsController < ApplicationController
 
   def create_child
     @comment = Comment.find_by_id(params[:id])
+    @post = Post.find_by_id(@comment.commentable_id)
+    @user = User.find_by_id(@post.user_id)
     child_params = params[:child].permit(:content)
     @child = @comment.children.create(child_params)
-    redirect_to "/comments/#{@comment.id}"
+    redirect_to "/users/#{@user.id}/posts/#{@post.id}"
   end
 
 end
