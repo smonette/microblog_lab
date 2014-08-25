@@ -82,6 +82,14 @@ body#microblog {
       opacity: 0.6;
     }
   }
+  span.comment-form-toggle {
+    cursor: pointer;
+  }
+  form.comment-on-comment {
+    display: none;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
 
   /* Tags */
 }

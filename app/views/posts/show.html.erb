@@ -41,13 +41,22 @@
 
   <% @post.comments.each do |comment| %>
     <% if comment.content %>
-      <p><%= comment.content %> <a href="/comments/<%= comment.id %>"><small>Say something about this &raquo;</small></a></p>
-    <% end %>
+      <p><%= comment.content %> <span class="comment-form-toggle"><small><strong>Say something about this</strong></small></span></p>
 
     <% comment.children.each do |child| %>
       <% if comment.content %>
         <p class="subcomment"><span class="glyphicon glyphicon-comment"></span><small><%= child.content %></small></p>
       <% end %>
+    <% end %>
+
+    <form action="/comments/<%= comment.id %>/children" method="post" class="comment-on-comment">
+        <div class="form-group">
+          <input type="text" name="child[content]", class="form-control", placeholder="Comment Text", autofocus>
+        </div>
+        <%= token_tag form_authenticity_token %>
+
+        <input type="submit" value: "Save Comment", class="btn btn-default">
+      </form>
     <% end %>
 
   <% end %>
