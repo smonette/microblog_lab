@@ -1,4 +1,13 @@
 # Micro Blog
+
+## Group Gists
+
+[Cameron](https://gist.github.com/cameronjacoby/9955ec0a95fdfa831b72)
+[Steph](https://gist.github.com/smonette/c9dce547255c9e769117)
+[Alli](https://gist.github.com/msalli/a9846f7d0c44dd3be1e5)
+[Palmer]()
+[Connie]()
+
 ## A Group Prep
 
 
