@@ -16,7 +16,7 @@
 //= require_tree .
 
 
-$(document).on('page:load', function() {
+$(document).on('page:load ready', function() {
   $('.comment-form-toggle').each(function(index, value) {
     $(value).click(function() {
       console.log('link clicked!!!');
