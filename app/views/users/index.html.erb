@@ -3,7 +3,11 @@
 <% @users.each do |user| %>
   <div class="row user-row">
     <div class="col-sm-2 col-xs-4">
-      <img src="<%= user.image_url %>"  class="profile-pic" />
+    <% if user.image_url != '' %>
+      <img src="<%= user.image_url %>" class="profile-pic" />
+    <% else %>
+      <img src="http://4556chamber.com.au/wp-content/uploads/2013/12/blank-user.jpg" class="profile-pic" />
+    <% end %>
     </div>
     <div class="col-sm-10 col-xs-8">
        <h3><%= user.first_name %> <%= user.last_name %> </h3>

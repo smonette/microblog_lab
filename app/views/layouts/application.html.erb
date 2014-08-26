@@ -29,13 +29,14 @@
     <div class="row footer">
       <div class="col-sm-8 col-sm-offset-2">
         <%  if session[:user_id] != nil %>
-          <a href="/" class="btn btn-default btn-sm">Home</a>
-          <a href="/users" class="btn btn-default btn-sm">View All Users</a>
-        <a href="/about_us" class="btn btn-default btn-sm">About Us</a>
-          <a href="/logout" class="btn btn-default btn-sm">Log Out</a>
+          <a href="/" class="btn btn-link btn-sm">Home</a>
+          <a href="/users/<%= session[:user_id] %>" class="btn btn-link btn-sm">My Profile</a>
+          <a href="/users" class="btn btn-link btn-sm">View All Users</a>
+          <a href="/about_us" class="btn btn-link btn-sm">About Us</a>
+          <a href="/logout" class="btn btn-link btn-sm">Log Out</a>
         <% else%>
-          <a href="/signup" class="btn btn-default btn-sm">Join</a>
-          <a href="/login" class="btn btn-default btn-sm">Log In </a>
+          <a href="/signup" class="btn btn-link btn-sm">Join</a>
+          <a href="/login" class="btn btn-link btn-sm">Log In </a>
         <% end %>
       </div>
     </div>

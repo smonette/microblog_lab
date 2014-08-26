@@ -4,6 +4,7 @@ class TagsController < ApplicationController
 
 	def index
 		@tags = Tag.all
+    @user = @current_user
 	end
 
   def show

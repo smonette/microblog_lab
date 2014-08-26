@@ -1,6 +1,17 @@
-<h2>Tags</h2>
-<% @tags.each do |tag| %>
-	<% if tag.posts.length > 0 %>
-    <p><a href="/tags/<%= tag.id %>">#<%= tag.name %></a></p>
-  <% end %>
-<% end %>
+<div class="row welcome-box">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Welcome <%= @user.first_name %>!</h2>
+      <a href="/users/<%= @user.id %>">View Your Profile &raquo;</a>
+      <a href="/users/<%= @user.id %>/posts/new">Add New Post &raquo;</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <h2>Explore Tags</h2>
+    <% @tags.each do |tag| %>
+      <% if tag.posts.length > 0 %>
+        <a href="/tags/<%= tag.id %>" class="btn btn-default tag">#<%= tag.name %></a>
+      <% end %>
+    <% end %>
+  </div>
+</div>
