@@ -28,11 +28,15 @@
     </div>
     <div class="row footer">
       <div class="col-sm-8 col-sm-offset-2">
-        <h4>Name of Microblog</h4>
-        <a href="/" class="btn btn-default btn-sm">Home</a>
-        <a href="/users" class="btn btn-default btn-sm">View All Users</a>
-        <a href="/users/new" class="btn btn-default btn-sm">Add New User</a>
+        <%  if session[:user_id] != nil %>
+          <a href="/" class="btn btn-default btn-sm">Home</a>
+          <a href="/users" class="btn btn-default btn-sm">View All Users</a>
         <a href="/about_us" class="btn btn-default btn-sm">About Us</a>
+          <a href="/logout" class="btn btn-default btn-sm">Log Out</a>
+        <% else%>
+          <a href="/signup" class="btn btn-default btn-sm">Join</a>
+          <a href="/login" class="btn btn-default btn-sm">Log In </a>
+        <% end %>
       </div>
     </div>
   </div>
