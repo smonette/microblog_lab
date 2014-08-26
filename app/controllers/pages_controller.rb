@@ -23,6 +23,9 @@ class PagesController < ApplicationController
     @user = User.find(user_id)
 
     @page = @user.pages.new
+    if @user != @current_user
+      redirect_to root_path
+    end
   end
 
 
@@ -54,6 +57,9 @@ class PagesController < ApplicationController
   def edit
     @user = User.find_by_id(params[:user_id])
     @page = @user.pages.find_by_id(params[:id])
+    if @user != @current_user
+      redirect_to root_path
+    end
   end
 
   def update

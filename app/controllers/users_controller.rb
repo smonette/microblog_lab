@@ -31,14 +31,18 @@ class UsersController < ApplicationController
 
     @post = @user.posts.find_by_id(params[:id])
     @all_posts = @user.posts
+    @current_user = @current_user
   end
 
 #edit user
   def edit
     user_id = params[:id]
     @user = User.find(user_id)
+
     @page = @user.pages.find_by_id(user_id)
-    p @page
+    if @user != @current_user
+      redirect_to "/users"
+    end
   end
 
 #update user
