@@ -10,6 +10,9 @@
 
     <h2>Sign in: </h2>
 
+    <% flash.each do |k, v| %>
+      <h2 id="<%= k %>"><%= v%></h2>
+    <% end %>
     <%= form_for :user do |f| %>
       <div class="form-group">
         <%= f.label :email %>:

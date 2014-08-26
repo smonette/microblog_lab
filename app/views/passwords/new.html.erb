@@ -1,2 +1,7 @@
-<h1>Passwords#new</h1>
-<p>Find me in app/views/passwords/new.html.erb</p>
+<h2>Enter your email to reset your password</h2>
+
+<%= form_tag passwords_path do %>
+<%= text_field_tag :email, nil, placeholder: "Enter your email" %>
+<%= submit_tag "Reset Password" %>
+<% end %>
+
