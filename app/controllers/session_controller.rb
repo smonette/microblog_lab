@@ -12,6 +12,7 @@ class SessionController < ApplicationController
     else
       #add flash message
       redirect_to login_path
+    end
   end
 
   def destroy
