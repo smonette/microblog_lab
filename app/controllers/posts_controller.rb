@@ -32,7 +32,7 @@ class PostsController < ApplicationController
         tag = Tag.find_or_create_by(name: tag_str)
         @post.tags << tag
       end
-      flash[:created] = "Message"
+      flash[:post_created] = "Message"
       redirect_to [@user, @post]
     else
       render action: 'new'
@@ -64,7 +64,7 @@ class PostsController < ApplicationController
         @post.tags << tag
       end
     end
-    flash[:edited] = "Message"
+    flash[:post_edited] = "Message"
     render :show
   end
 
@@ -72,7 +72,7 @@ class PostsController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     @post = @user.posts.find(params[:id])
     @post.destroy
-    redirect_to "/"
+    redirect_to "/users/#{@user.id}"
   end
 
 end

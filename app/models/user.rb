@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   validates :password_digest,
     :presence => true,
+    :confirmation => true,
     :length => { minimum: 6 }
 
   validates :first_name,

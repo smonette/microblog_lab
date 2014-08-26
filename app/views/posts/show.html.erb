@@ -1,8 +1,8 @@
-<% if flash[:created] %>
-  <p>Post created!</p>
+<% if flash[:post_created] %>
+  <p class="flash-success">Post created!</p>
 <% end %>
-<% if flash[:edited] %>
-  <p>Post edited!</p>
+<% if flash[:post_edited] %>
+  <p class="flash-success">Post edited!</p>
 <% end %>
 
 <h2><%= @post.title %></h2>
@@ -32,8 +32,8 @@
 </div>
 <div class="form-group">
   <% if @current_user == @user %>
-    <%= button_to "Delete", user_post_path(@post.user.id, @user.id), method: :delete, class: "btn btn-danger" %>
-  <%end%>
+    <%= button_to "Delete", user_post_path(@user.id, @post.id), method: :delete, class: "btn btn-danger" %>
+  <% end %>
 </div>
 
 <h3>New Comment</h3>

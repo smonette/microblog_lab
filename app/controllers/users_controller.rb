@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   def checkSesh
     if session[:user_id] == nil
       redirect_to '/login'
+    else 
+      @current_user = User.find_by_id(session[:user_id])
     end
   end
 
@@ -30,15 +32,25 @@ class UsersController < ApplicationController
       :last_name,
       :email,
       :password,
+      :password_confirmation,
       :image_url)
-    User.create(new_user)
-    flash[:alert] = "Message"
-    redirect_to "/users"
+    @user = User.new(new_user)
+
+    if @user.save
+      flash[:new_user] = "Message"
+      redirect_to "/login"
+    else
+      if @user.password != @user.password_confirmation
+        flash[:password_error] = "Message"
+      end
+      redirect_to "/signup"
+    end
   end
 
   #show individual user
   def show
     checkSesh
+    
     user_id = params[:id]
     @user = User.find_by_id(user_id)
 
@@ -73,7 +85,7 @@ class UsersController < ApplicationController
       :email      => res[:email],
       :image_url  => res[:image_url])
 
-    flash[:edited] = "Message"
+    flash[:user_edited] = "Message"
     redirect_to "/users/#{u_id}"
   end
 

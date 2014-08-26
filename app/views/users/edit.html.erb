@@ -1,31 +1,26 @@
-
 <div class="row">
-    <div class="col-xs-12 col-sm-8  col-sm-offset-2">
-      <h2>Edit your profile: </h2>
-      <%= form_for @user do |f| %>
-        <div class= "form-group">
-          <%= f.label :first_name %>:
-          <%= f.text_field :first_name , class: "form-control" %>
-         </div>
-          <div class= "form-group">
-            <%= f.label :last_name %>:
-            <%= f.text_field :last_name , class: "form-control" %>
-          </div>
-        <div class= "form-group">
-          <%= f.label :email %>:
-          <%= f.email_field :email , class: "form-control" %>
+  <div class="col-xs-12 col-sm-8  col-sm-offset-2">
+    <h2>Edit your profile: </h2>
+    <%= form_for @user do |f| %>
+      <div class= "form-group">
+        <%= f.label :first_name %>:
+        <%= f.text_field :first_name , class: "form-control" %>
        </div>
         <div class= "form-group">
-        	<%= f.label :confim_email %>:
-          <%= text_field :person, :email_confirmation , class: "form-control" %>
-       </div>
-        <div class= "form-group">
-          <%= f.label :image_url %>:
-          <%= f.url_field :image_url, placeholder: "Image URL", class: "form-control"  %>
-       </div>
-        <div class= "form-group">
-          <%= f.submit "Update User", class: "form-control btn btn-primary"%>
+          <%= f.label :last_name %>:
+          <%= f.text_field :last_name , class: "form-control" %>
         </div>
-      <% end %>
+      <div class= "form-group">
+        <%= f.label :email %>:
+        <%= f.email_field :email , class: "form-control" %>
+     </div>
+      <div class= "form-group">
+        <%= f.label :image_url %>:
+        <%= f.url_field :image_url, placeholder: "Image URL", class: "form-control"  %>
+     </div>
+      <div class= "form-group">
+        <%= f.submit "Update User", class: "form-control btn btn-primary"%>
+      </div>
+    <% end %>
   </div>
 </div>
