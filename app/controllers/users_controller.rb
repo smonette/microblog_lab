@@ -32,10 +32,19 @@ class UsersController < ApplicationController
       :last_name,
       :email,
       :password,
+      :password_confirmation,
       :image_url)
-    User.create(new_user)
-    flash[:new_user] = "Message"
-    redirect_to "/users"
+    @user = User.new(new_user)
+
+    if @user.save
+      flash[:new_user] = "Message"
+      redirect_to "/login"
+    else
+      if @user.password != @user.password_confirmation
+        flash[:password_error] = "Message"
+      end
+      redirect_to "/signup"
+    end
   end
 
   #show individual user
