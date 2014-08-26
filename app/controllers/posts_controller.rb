@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = User.find_by_id(params[:user_id])
+    @user = current_user
     @post = @user.posts.new
     if @user != @current_user
       redirect_to root_path
@@ -21,21 +21,26 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_id(params[:user_id])
-    new_post = params.require(:post).permit(:title, :body)
+    if User.find(params[:user_id]) == current_user
+      new_post = params.require(:post).permit(:title, :body)
+      @user = current_user
+      @post = @user.posts.new(new_post)
+      tag_params = params[:tags].split(",").map(&:strip).map(&:downcase)
 
-    @post = @user.posts.new(new_post)
-    tag_params = params[:tags].split(",").map(&:strip).map(&:downcase)
-
-    if @post.save
-        tag_params.each do |tag_str|
-        tag = Tag.find_or_create_by(name: tag_str)
-        @post.tags << tag
+      if @post.save
+          tag_params.each do |tag_str|
+          tag = Tag.find_or_create_by(name: tag_str)
+          @post.tags << tag
+        end
+        flash[:post_created] = "Message"
+        redirect_to [current_user, @post]
+      else
+        render action: 'new'
       end
-      flash[:post_created] = "Message"
-      redirect_to [@user, @post]
     else
-      render action: 'new'
+      flash[:notice] = "oops please re-login..."
+      session[:user_id] = nil
+      redirect_to "/login"
     end
   end
 
