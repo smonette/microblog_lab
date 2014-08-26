@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :is_authenticated?
+
   #view all users
   def index
     @users = User.all
@@ -7,7 +9,11 @@ class UsersController < ApplicationController
 
   #form to create a new user
   def new
-    @user = User.new
+    if @current_user
+      redirect_to root_path
+    else
+      @user = User.new
+    end
   end
 
 #create user

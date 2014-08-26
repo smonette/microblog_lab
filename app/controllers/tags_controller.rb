@@ -1,5 +1,7 @@
 class TagsController < ApplicationController
 
+  before_action :is_authenticated?
+
 	def index
 		@tags = Tag.all
 	end

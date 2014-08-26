@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  before_action :is_authenticated?
+
   def index
     res = params[:value]
     p res

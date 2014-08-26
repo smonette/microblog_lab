@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
 
+  before_action :is_authenticated?
+
+  # WE ARE NOT USING THE COMMENTS SHOW PAGE
   def show
     @comment = Comment.find(params[:id])
     @commentable_type = @comment.commentable_type
