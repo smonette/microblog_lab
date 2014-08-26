@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "/logout", to: "session#destroy"
 
+  get "/signup", to: "users#new"
+
   resources :users do
     resources :posts
     resources :pages

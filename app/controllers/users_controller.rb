@@ -1,15 +1,22 @@
 class UsersController < ApplicationController
 
-  before_action :is_authenticated?
+  # before_action :is_authenticated?
+
+  def checkSesh
+    if session[:user_id] == nil
+      redirect_to '/login'
+    end
+  end
 
   #view all users
   def index
+    checkSesh
     @users = User.all
   end
 
   #form to create a new user
   def new
-    if @current_user
+    if session[:user_id] != nil
       redirect_to root_path
     else
       @user = User.new
@@ -26,6 +33,7 @@ class UsersController < ApplicationController
 
   #show individual user
   def show
+    checkSesh
     user_id = params[:id]
     @user = User.find_by_id(user_id)
 
@@ -36,6 +44,7 @@ class UsersController < ApplicationController
 
 #edit user
   def edit
+    checkSesh
     user_id = params[:id]
     @user = User.find(user_id)
 
@@ -47,6 +56,7 @@ class UsersController < ApplicationController
 
 #update user
   def update
+    checkSesh
     u_id = params[:id]
 
     res = params.require(:user).permit(:first_name, :last_name, :email, :image_url)
