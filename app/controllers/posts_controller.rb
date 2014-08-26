@@ -32,6 +32,7 @@ class PostsController < ApplicationController
         tag = Tag.find_or_create_by(name: tag_str)
         @post.tags << tag
       end
+      flash[:created] = "Message"
       redirect_to [@user, @post]
     else
       render action: 'new'
@@ -63,6 +64,7 @@ class PostsController < ApplicationController
         @post.tags << tag
       end
     end
+    flash[:edited] = "Message"
     render :show
   end
 
