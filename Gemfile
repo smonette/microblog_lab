@@ -39,5 +39,6 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+	gem "letter_opener"
   gem 'rspec-rails', '~> 3.0.0'
 end
