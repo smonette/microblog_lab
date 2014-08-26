@@ -1,7 +1,5 @@
-
-	<h2> <%= @page.name %> </h2>
-	<p><%= @page.content %></p>
-    <%if @current_user == @user%>
-	  	<a href="/users/<%= @user.id %>/pages/<%= @page.id %>/edit ">Edit</a>
-    <% end %>
-
+<h2> <%= @page.name %> </h2>
+<p><%= @page.content %></p>
+<% if @current_user == @user %>
+  <a href="/users/<%= @user.id %>/pages/<%= @page.id %>/edit ">Edit</a>
+<% end %>

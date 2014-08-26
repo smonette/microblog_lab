@@ -1,8 +1,8 @@
-<% if flash[:created] %>
-  <p>Post created!</p>
+<% if flash[:post_created] %>
+  <p class="flash-success">Post created!</p>
 <% end %>
-<% if flash[:edited] %>
-  <p>Post edited!</p>
+<% if flash[:post_edited] %>
+  <p class="flash-success">Post edited!</p>
 <% end %>
 
 <h2><%= @post.title %></h2>

@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       :password,
       :image_url)
     User.create(new_user)
-    flash[:alert] = "Message"
+    flash[:new_user] = "Message"
     redirect_to "/users"
   end
 
@@ -76,7 +76,7 @@ class UsersController < ApplicationController
       :email      => res[:email],
       :image_url  => res[:image_url])
 
-    flash[:edited] = "Message"
+    flash[:user_edited] = "Message"
     redirect_to "/users/#{u_id}"
   end
 
