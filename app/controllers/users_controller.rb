@@ -73,6 +73,7 @@ class UsersController < ApplicationController
       :email      => res[:email],
       :image_url  => res[:image_url])
 
+    flash[:edited] = "Message"
     redirect_to "/users/#{u_id}"
   end
 
