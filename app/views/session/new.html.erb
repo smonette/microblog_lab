@@ -8,11 +8,11 @@
       <p class="flash-success">Success! Login now!</p>
     <% end %>
 
-    <h2>Sign in: </h2>
-
     <% flash.each do |k, v| %>
-      <h2 id="<%= k %>"><%= v%></h2>
+    <h2 id="<%= k %>"><%= v%></h2>
     <% end %>
+
+    <h2>Sign in: </h2>
     <%= form_for :user do |f| %>
       <div class="form-group">
         <%= f.label :email %>:
