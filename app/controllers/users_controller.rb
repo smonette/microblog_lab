@@ -38,7 +38,12 @@ class UsersController < ApplicationController
 
   #show individual user
   def show
-    checkSesh
+    if session[:user_id] == nil
+      redirect_to '/login'
+    else 
+      @current_user = User.find_by_id(session[:user_id])
+    end
+      
     user_id = params[:id]
     @user = User.find_by_id(user_id)
 

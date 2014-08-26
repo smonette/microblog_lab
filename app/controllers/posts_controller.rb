@@ -72,7 +72,7 @@ class PostsController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     @post = @user.posts.find(params[:id])
     @post.destroy
-    redirect_to "/"
+    redirect_to "/users/#{@user.id}"
   end
 
 end
