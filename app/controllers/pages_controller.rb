@@ -19,63 +19,69 @@ class PagesController < ApplicationController
   end
 
   def new
-    user_id = params[:user_id]
-    @user = User.find(user_id)
-
+    @user = current_user
     @page = @user.pages.new
-    if @user != @current_user
+    if User.find(params[:user_id]) != @current_user
       redirect_to root_path
     end
   end
 
 
   def create
-    user_id = params[:user_id]
-    @user = User.find(user_id)
+    if User.find(params[:user_id]) == current_user
+      @user = current_user
+      new_page = params.require(:page).permit(:name, :content)
 
-    new_page = params.require(:page).permit(:name, :content)
-
-    if @user.pages.length == 1
-        @user.pages.each do |page|
-            if page[:name] == new_page[:name]
-              redirect_to "/users/#{user_id}"
-            else
-              my_page = Page.create(new_page)
-              @user.pages << my_page
-              redirect_to "/users/#{user_id}"
-            end
-        end
-    elsif @user.pages.length == 0
-      my_page = Page.create(new_page)
-      @user.pages << my_page
-      redirect_to "/users/#{user_id}"
+      if @user.pages.length == 1
+          @user.pages.each do |page|
+              if page[:name] == new_page[:name]
+                redirect_to user_path(current_user)
+              else
+                my_page = Page.create(new_page)
+                @user.pages << my_page
+                redirect_to user_path(current_user)
+              end
+          end
+      elsif @user.pages.length == 0
+        my_page = Page.create(new_page)
+        @user.pages << my_page
+        redirect_to user_path(current_user)
+      else
+        redirect_to user_path(current_user)
+      end
     else
-      redirect_to "/users/#{user_id}"
+      flash[:notice] = "oops please re-login..."
+      session[:user_id] = nil
+      redirect_to "/login"
     end
   end
 
   def edit
-    @user = User.find_by_id(params[:user_id])
+    @user = current_user
     @page = @user.pages.find_by_id(params[:id])
-    if @user != @current_user
+    if User.find_by_id(params[:user_id]) != @current_user
       redirect_to root_path
     end
   end
 
   def update
-    @user = User.find_by_id(params[:user_id])
-    @page = @user.pages.find_by_id(params[:id])
+    if User.find(params[:user_id]) == current_user
+      @user = current_user
+      @page = @user.pages.find_by_id(params[:id])
 
-    if @page
-      update_page = params.require(:page).permit(:content)
-      @page.update_attributes(:content => update_page[:content])
+      if @page
+        update_page = params.require(:page).permit(:content)
+        @page.update_attributes(:content => update_page[:content])
+      end
+
+      render :show
+
+    else
+      flash[:notice] = "oops please re-login..."
+      session[:user_id] = nil
+      redirect_to "/login"
     end
 
-    render :show
-
   end
-
-
-
 
 end
