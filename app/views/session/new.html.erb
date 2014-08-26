@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <p>Logged out!</p>
+<% end %>
+<% if flash[:alert] %>
+  <p>Success! Login now!</p>
+<% end %>
 
   <div class="row">
     <div class="col-xs-12 col-sm-8  col-sm-offset-2">
