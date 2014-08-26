@@ -1,42 +1,62 @@
 class UsersController < ApplicationController
 
+  # before_action :is_authenticated?
+
+  def checkSesh
+    if session[:user_id] == nil
+      redirect_to '/login'
+    end
+  end
+
   #view all users
   def index
+    checkSesh
     @users = User.all
   end
 
   #form to create a new user
   def new
-    @user = User.new
+    if session[:user_id] != nil
+      redirect_to root_path
+    else
+      @user = User.new
+    end
   end
 
 #create user
   def create
-    new_user = params.require(:user).permit(:first_name, :last_name, :email, :image_url)
+    new_user = params.require(:user).permit(:first_name, :last_name, :email, :password, :image_url)
     User.create(new_user)
-
+    flash[:alert] = "Message"
     redirect_to "/users"
   end
 
   #show individual user
   def show
+    checkSesh
     user_id = params[:id]
     @user = User.find_by_id(user_id)
 
     @post = @user.posts.find_by_id(params[:id])
     @all_posts = @user.posts
+    @current_user = @current_user
   end
 
 #edit user
   def edit
+    checkSesh
     user_id = params[:id]
     @user = User.find(user_id)
+
     @page = @user.pages.find_by_id(user_id)
-    p @page
+    if @user != @current_user
+      redirect_to "/users"
+    end
   end
 
 #update user
   def update
+    checkSesh
     u_id = params[:id]
 
     res = params.require(:user).permit(:first_name, :last_name, :email, :image_url)

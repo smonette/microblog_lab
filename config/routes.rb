@@ -4,6 +4,16 @@ Rails.application.routes.draw do
 
   get "/about_us", to: "site#about"
 
+  get "/login", to: "session#new"
+
+  post "/login", to: "session#create"
+
+  delete "/logout", to: "session#destroy"
+
+  get "/logout", to: "session#destroy"
+
+  get "/signup", to: "users#new"
+
   resources :users do
     resources :posts
     resources :pages
@@ -11,9 +21,6 @@ Rails.application.routes.draw do
 
   resources :tags
   resources :comments
-
-  #specific user's posts associated with a specific tag
-  # get "/users/:user_id/tags/:tag_id", to: "users#show_posts_by_tag"
 
   post "users/:user_id/posts/:post_id/comments", to: "comments#create"
 

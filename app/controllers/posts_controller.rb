@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :is_authenticated?
+
   def index
     @user = User.find_by_id(params[:user_id])
   end
@@ -13,6 +15,9 @@ class PostsController < ApplicationController
   def new
     @user = User.find_by_id(params[:user_id])
     @post = @user.posts.new
+    if @user != @current_user
+      redirect_to root_path
+    end
   end
 
   def create
@@ -36,6 +41,9 @@ class PostsController < ApplicationController
   def edit
     @user = User.find_by_id(params[:user_id])
     @post = @user.posts.find_by_id(params[:id])
+    if @user != @current_user
+      redirect_to root_path
+    end
   end
 
   def update
