@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  #don't need this due to resources:passwords
+  # get 'passwords/new'
 
   root to: "tags#index"
 
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   get "/logout", to: "session#destroy"
 
   get "/signup", to: "users#new"
+
+  resources :passwords
 
   resources :users do
     resources :posts

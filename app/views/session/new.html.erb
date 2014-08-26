@@ -8,8 +8,11 @@
       <p class="flash-success">Success! Login now!</p>
     <% end %>
 
-    <h2>Sign in: </h2>
+    <% flash.each do |k, v| %>
+    <h2 id="<%= k %>"><%= v%></h2>
+    <% end %>
 
+    <h2>Sign in: </h2>
     <%= form_for :user do |f| %>
       <div class="form-group">
         <%= f.label :email %>:
@@ -24,5 +27,7 @@
       </div>
     <% end %>
     <a href="/signup">Not a member? Sign up &raquo;</a>
+
+    <%= link_to "Forgot Password?", new_password_path %>
   </div>
 </div>
