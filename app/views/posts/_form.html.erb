@@ -1,0 +1,62 @@
+
+<!-- button to edit post-->
+<div class="form-group">
+  <% if @current_user == @user %>
+    <%= button_to "Edit Post", edit_user_post_path(@user.id, @post.id), :method => :get, class: "btn btn-default" %><br>
+  <% end %>
+</div>
+
+<!-- button to delete post-->
+<div>
+  <% if @current_user == @user %>
+    <%= button_to "Delete", user_post_path(@user.id, @post.id), method: :delete, class: "btn btn-danger" %>
+    <% end %>
+</div>
+
+<h3>New Comment</h3>
+
+<!-- form to add comment to post -->
+<form action="/users/<%= @user.id %>/posts/<%= @post.id %>/comments" method="post">
+  <div class="form-group">
+    <input type="text" name="comment[content]", class="form-control", placeholder="Comment Text", autofocus>
+  </div>
+
+  <%= token_tag form_authenticity_token %>
+
+  <input type="submit" value: "Post Comment", class="btn btn-default">
+</form>
+
+<!-- show comments -->
+<% if @post.comments.length > 0 %>
+  <h3>Comments about <%= @post.title %></h3>
+
+  <% @post.comments.each do |comment| %>
+    <% if comment.content %>
+    <p><%= comment.content %><br><span class="comment-form-toggle"><small><strong> Say something about this </strong></small></span> </p>
+
+    <!-- show comments on comments -->
+    <% comment.children.each do |child| %>
+      <% if comment.content %>
+        <p class="subcomment"><span class="glyphicon glyphicon-comment"></span><small><%= child.content %></small></p>
+      <% end %>
+    <% end %>
+
+    <!-- form for adding comment on comment -->
+    <form action="/comments/<%= comment.id %>/children" method="post" class="comment-on-comment">
+      <div class="form-group">
+        <input type="text" name="child[content]", class="form-control", placeholder="Comment Text", autofocus>
+      </div>
+
+      <%= token_tag form_authenticity_token %>
+      <input type="submit" value: "Post Comment", class="btn btn-default">
+    </form>
+
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+
+
+

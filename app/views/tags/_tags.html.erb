@@ -1,0 +1,6 @@
+<p id="post-tags">
+  Tags:
+  <% @post.tags.each do |tag| %>
+    <a href="/tags/<%= tag[:id] %>">#<%= tag.name %> </a>
+  <% end %>
+</p>

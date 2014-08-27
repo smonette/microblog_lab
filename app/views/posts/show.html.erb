@@ -5,70 +5,10 @@
   <p class="flash-success">Post edited!</p>
 <% end %>
 
-<h2><%= @post.title %></h2>
-<h4>By:
-  <a href="/users/<%= @user.id %>">
-    <%= @user.first_name %> <%= @user.last_name %>
-  </a>
-</h4>
-<% month = @post[:created_at].month %>
-<% day = @post[:created_at].day %>
-<% year =  @post[:created_at].year %>
+<%= render partial: "post", :locals => {:post => @post, :user => @user } %>
 
-<p><%= month %>.<%= day %>.<%= year %></p>
-<p><%= @post.body %></p>
+<%= render partial: "tags/tags", :locals => {:post => @post } %>
 
-<p id="post-tags">
-  Tags:
-  <% @post.tags.each do |tag| %>
-    <a href="/tags/<%= tag[:id] %>">#<%= tag.name %></a>
-  <% end %>
-</p>
-
-<div class="form-group">
-  <% if @current_user == @user %>
-    <a class="btn btn-default" href="/users/<%= @user.id %>/posts/<%= @post.id %>/edit" role="button">Edit Post</a><br>
-  <% end %>
+<div>
+  <%= render partial: "form", :locals => {:post => @post, :user => @user, :comment => @comment, tags: @post_tags }  %>
 </div>
-<div class="form-group">
-  <% if @current_user == @user %>
-    <%= button_to "Delete", user_post_path(@user.id, @post.id), method: :delete, class: "btn btn-danger" %>
-  <% end %>
-</div>
-
-<h3>New Comment</h3>
-
-<form action="/users/<%= @user.id %>/posts/<%= @post.id %>/comments" method="post">
-  <div class="form-group">
-    <input type="text" name="comment[content]", class="form-control", placeholder="Comment Text", autofocus>
-  </div>
-  <%= token_tag form_authenticity_token %>
-
-  <input type="submit" value: "Save Comment", class="btn btn-default">
-</form>
-
-<% if @post.comments.length > 0 %>
-  <h3>Comments about <%= @post.title %></h3>
-
-  <% @post.comments.each do |comment| %>
-    <% if comment.content %>
-      <p><%= comment.content %> <span class="comment-form-toggle"><small><strong>Say something about this</strong></small></span></p>
-
-    <% comment.children.each do |child| %>
-      <% if comment.content %>
-        <p class="subcomment"><span class="glyphicon glyphicon-comment"></span><small><%= child.content %></small></p>
-      <% end %>
-    <% end %>
-
-    <form action="/comments/<%= comment.id %>/children" method="post" class="comment-on-comment">
-        <div class="form-group">
-          <input type="text" name="child[content]", class="form-control", placeholder="Comment Text", autofocus>
-        </div>
-        <%= token_tag form_authenticity_token %>
-
-        <input type="submit" value: "Save Comment", class="btn btn-default">
-      </form>
-    <% end %>
-
-  <% end %>
-<% end %>
