@@ -2,7 +2,7 @@ cameron = User.create({email: "cameron.jacoby@gmail.com",
   first_name: "Cameron",
   last_name: "Jacoby",
   image_url: "http://static.businessinsider.com/image/52e92002ecad04b72499e8a0-400/image.jpg",
-  password_digest: "12341234"
+  password: "12341234"
 })
 
 cameron_about = Page.create({
@@ -24,7 +24,7 @@ steph = User.create({email: "steph@gmail.com",
   first_name: "Steph",
   last_name: "Monette",
   image_url: "http://static.businessinsider.com/image/52e92007ecad04201f99e8a2-400/image.jpg",
-  password_digest: "12341234"
+  password: "12341234"
 })
 
 steph_about = Page.create({
@@ -46,7 +46,7 @@ alli = User.create({email: "alli123@gmail.com",
   first_name: "Alli",
   last_name: "Cernoch",
   image_url: "http://static.businessinsider.com/image/52e9200269bedd2d7d5b3f9c-400/image.jpg",
-  password_digest: "12341234"
+  password: "12341234"
 })
 
 alli_about = Page.create({
@@ -67,7 +67,7 @@ connie = User.create({email: "connie123@gmail.com",
   first_name: "Connie",
   last_name: "Chang",
   image_url: "http://fc01.deviantart.net/fs11/i/2006/260/c/5/chinchilla_by_effic.jpg",
-  password_digest: "12341234"
+  password: "12341234"
 })
 
 connie_about = Page.create({
@@ -89,7 +89,7 @@ palmer = User.create({email: "palmer44@gmail.com",
   first_name: "Palmer",
   last_name: "Sanderson",
   image_url: "http://static.businessinsider.com/image/52e9200069beddde035b3f96-400/image.jpg",
-  password_digest: "12341234"
+  password: "12341234"
 })
 
 palmer_about = Page.create({
