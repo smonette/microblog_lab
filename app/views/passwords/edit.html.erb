@@ -1,0 +1,11 @@
+<form action="/password/<%= @user.code %>" method="post" >
+<div class="form-group">
+  <input type="password" name="password[password]", class="form-control" >
+</div>
+<div class="form-group">
+  <input type="password" name="password[password_confirmation]", class="form-control" >
+</div>
+<%= token_tag form_authenticity_token %>
+
+<input type="submit" value: "Reset Password", class="btn btn-default">
+</form>

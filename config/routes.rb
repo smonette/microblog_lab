@@ -30,4 +30,6 @@ Rails.application.routes.draw do
 
   post "/comments/:id/children", to: "comments#create_child"
 
+  post "/password/:id", to: "passwords#update"
+
 end
