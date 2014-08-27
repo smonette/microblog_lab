@@ -1,6 +1,3 @@
-
-
-
 <% if flash[:post_created] %>
   <p class="flash-success">Post created!</p>
 <% end %>
@@ -8,18 +5,7 @@
   <p class="flash-success">Post edited!</p>
 <% end %>
 
-<h2><%= @post.title %></h2>
-<h4>By:
-  <a href="/users/<%= @user.id %>">
-    <%= @user.first_name %> <%= @user.last_name %>
-  </a>
-</h4>
-<% month = @post[:created_at].month %>
-<% day = @post[:created_at].day %>
-<% year =  @post[:created_at].year %>
-
-<p><%= month %>.<%= day %>.<%= year %></p>
-<p><%= @post.body %></p>
+<%= render partial: "post", :locals => {:post => @post, :user => @user } %>
 
 <p id="post-tags">
   Tags:
