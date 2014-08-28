@@ -28,4 +28,71 @@ $(document).on('page:load ready', function() {
       });
     });
   });
+
+  $('#comment-form').submit(function(e) {
+    e.preventDefault();
+
+    var content = $('.comment-content').val();
+    var formURL = $(this).attr('action');
+
+
+    function testAjax() {
+      console.log(content);
+      console.log(formURL);
+      $.ajax({
+        url: formURL,
+        type: 'POST',
+        data: {"comment" : content} ,
+        success: function(data) {
+          console.log('SUCCESS WITH DATA', data);
+          console.log('CONTENT', content);
+          $('#comment-container').append(
+               data.content, 
+              '<p style="color:green">Comment Saved!</p>');
+        },
+        error: function(error) {
+          console.log('ERROR', error);
+          console.log('CONTENT', content);
+        }
+      });
+    }
+
+    testAjax();
+
+  });
+
+  // NOT WORKING YET
+
+  //  $('#subcomment-form').submit(function(e) {
+  //   e.preventDefault();
+
+  //   var content = $('.subcomment-content').val();
+  //   var formURL = $(this).attr('action');
+
+
+  //   function testAjax() {
+  //     console.log(content);
+  //     console.log(formURL);
+  //     $.ajax({
+  //       url: formURL,
+  //       type: 'POST',
+  //       data: {"comment" : content} ,
+  //       success: function(data) {
+  //         console.log('SUCCESS WITH DATA', data);
+  //         console.log('CONTENT', content);
+  //         // $('#subcomment-container').append(
+  //         //      data.content, 
+  //         //     '<p style="color:green">Comment Saved!</p>');
+  //       },
+  //       error: function(error) {
+  //         console.log('ERROR', error);
+  //         console.log('CONTENT', content);
+  //       }
+  //     });
+  //   }
+
+  //   testAjax();
+
+  // });
+
 });
