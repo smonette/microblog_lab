@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   before_action :is_authenticated?
+  protect_from_forgery :except => [:create]
 
   # WE ARE NOT USING THE COMMENTS SHOW PAGE
   def show
@@ -21,9 +22,9 @@ class CommentsController < ApplicationController
   def create
     @user = User.find_by_id(params[:user_id])
     @post = Post.find_by_id(params[:post_id])
-    comment_params = params[:comment].permit(:content)
-    @comment = @post.comments.create(comment_params)
-    redirect_to "/users/#{@user.id}/posts/#{@post.id}"
+    comment_params = params[:comment]
+    @comment = @post.comments.create({content: comment_params})
+    render :json => @comment
   end
 
   def create_child

@@ -16,9 +16,9 @@
 <h3>New Comment</h3>
 
 <!-- form to add comment to post -->
-<form action="/users/<%= @user.id %>/posts/<%= @post.id %>/comments" method="post">
+<form action="/users/<%= @user.id %>/posts/<%= @post.id %>/comments" method="post" id="comment-form">
   <div class="form-group">
-    <input type="text" name="comment[content]", class="form-control", placeholder="Comment Text", autofocus>
+    <input type="text" name="comment[content]", class="form-control comment-content", placeholder="Comment Text", autofocus>
   </div>
 
   <%= token_tag form_authenticity_token %>
@@ -30,29 +30,32 @@
 <% if @post.comments.length > 0 %>
   <h3>Comments about <%= @post.title %></h3>
 
-  <% @post.comments.each do |comment| %>
-    <% if comment.content %>
-    <p><%= comment.content %><br><span class="comment-form-toggle"><small><strong> Say something about this </strong></small></span> </p>
-
-    <!-- show comments on comments -->
-    <% comment.children.each do |child| %>
+  <div id="comment-container">
+    <% @post.comments.each do |comment| %>
       <% if comment.content %>
-        <p class="subcomment"><span class="glyphicon glyphicon-comment"></span><small><%= child.content %></small></p>
+      <p><%= comment.content %><br><span class="comment-form-toggle"><small><strong> Say something about this </strong></small></span> </p>
+      <div class="subcomment-container">
+      <!-- show comments on comments -->
+      <% comment.children.each do |child| %>
+        <% if comment.content %>
+          <p class="subcomment"><span class="glyphicon glyphicon-comment"></span><small><%= child.content %></small></p>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <!-- form for adding comment on comment -->
-    <form action="/comments/<%= comment.id %>/children" method="post" class="comment-on-comment">
-      <div class="form-group">
-        <input type="text" name="child[content]", class="form-control", placeholder="Comment Text", autofocus>
+      <!-- form for adding comment on comment -->
+      <form action="/comments/<%= comment.id %>/children" method="post" id="subcomment-form" class="comment-on-comment">
+        <div class="form-group">
+          <input type="text" name="child[content]", class="form-control subcomment-content", placeholder="Comment Text", autofocus>
+        </div>
+
+        <%= token_tag form_authenticity_token %>
+        <input type="submit" value: "Post Comment", class="btn btn-default">
+      </form>
+
+      <% end %>
       </div>
-
-      <%= token_tag form_authenticity_token %>
-      <input type="submit" value: "Post Comment", class="btn btn-default">
-    </form>
-
     <% end %>
-  <% end %>
+  </div>
 <% end %>
 
 

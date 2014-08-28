@@ -24,11 +24,11 @@ Rails.application.routes.draw do
   end
 
   resources :tags
-  resources :comments
+  # resources :comments
 
   post "users/:user_id/posts/:post_id/comments", to: "comments#create"
 
-  post "/comments/:id/children", to: "comments#create_child"
+  post "comments/:id/children", to: "comments#create_child"
 
   post "/password/:id", to: "passwords#update"
 
